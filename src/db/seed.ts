@@ -796,9 +796,8 @@ export async function ensureSchemaAndSeed(forceReseed = false) {
   schemaInitPromise = runInit();
   try {
     await schemaInitPromise;
-  } catch (e) {
+  } finally {
     schemaInitPromise = null;
-    throw e;
   }
 }
 
