@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  /* Paleta Editorial Acadêmico — Fundo Marfim, Linhas Finas, Acento Restrito */
+  --bg-canvas: #f7f5f0;
+  --bg-surface: #efece6;
+  --bg-card: #faf9f5;
+  --bg-subtle: #eae6dd;
+  --bg-fixed-slot: #e7e3da;
+  --bg-hover: #e8e4db;
+
+  --border-hairline: #dcd8ce;
+  --border-strong: #b8b3a8;
+
+  --ink-primary: #181816;
+  --ink-secondary: #52504b;
+  --ink-muted: #7d7a73;
+  --ink-on-accent: #faf9f5;
+
+  /* Acento Único Restrito — Azul Prússia Acadêmico */
+  --accent-primary: #1b365d;
+  --accent-hover: #142847;
+  --accent-subtle: #e6ecf2;
+
+  /* Estados Operacionais Sóbrios (Sem Neon) */
+  --status-overload: #9e2a2b;
+  --status-overload-bg: #f7e8e8;
+  --status-warning: #9a5806;
+  --status-warning-bg: #f8f0e2;
+  --status-complete: #235332;
+  --status-complete-bg: #e8f1eb;
+
+  /* Escala de Raio Restrita (Desktop Craft) */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+
+  /* Escala Tipográfica Modular (Desktop Craft) */
+  --fs-2xs: 0.625rem; /* 10px */
+  --fs-xs: 0.6875rem; /* 11px */
+  --fs-sm: 0.75rem;   /* 12px */
+  --fs-base: 0.8125rem; /* 13px */
+  --fs-md: 0.875rem;  /* 14px */
+  --fs-lg: 1.0625rem; /* 17px */
+  --fs-xl: 1.375rem;  /* 22px */
+  --fs-2xl: 1.75rem;  /* 28px */
+
+  /* Tipografia */
+  --font-serif: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype",
+    "Book Antiqua", Georgia, serif;
+  --font-sans: var(--font-plex-sans), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", "IBM Plex Mono",
+    ui-monospace, SFMono-Regular, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border-hairline);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Classes da Escala Tipográfica Modular */
+.type-2xs {
+  font-size: var(--fs-2xs);
+}
+.type-xs {
+  font-size: var(--fs-xs);
+}
+.type-sm {
+  font-size: var(--fs-sm);
+}
+.type-base {
+  font-size: var(--fs-base);
+}
+.type-md {
+  font-size: var(--fs-md);
+}
+.type-lg {
+  font-size: var(--fs-lg);
+}
+.type-xl {
+  font-size: var(--fs-xl);
+}
+.type-2xl {
+  font-size: var(--fs-2xl);
+}
+
+/* Tipografia Editorial */
+.font-editorial {
+  font-family: var(--font-serif);
+  letter-spacing: -0.015em;
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hachura diagonal ultrafina para Compromissos Fixos na grade semanal */
+.pattern-fixed-slot {
+  background-color: var(--bg-fixed-slot);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 5px,
+    rgba(24, 24, 22, 0.045) 5px,
+    rgba(24, 24, 22, 0.045) 6px
+  );
+}
+
+.modal-scrim {
+  background-color: rgba(24, 24, 22, 0.42);
+}
+
+/* Foco de Teclado Visível e Rigoroso */
+:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 1px;
+}
+
+/* Scrollbars Discretas de Desktop */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-muted);
+}
+
+/* Respeito estrito a prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
